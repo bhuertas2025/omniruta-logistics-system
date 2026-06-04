@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura Empresarial Inteligente - OmniRuta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px);
+            background-size: 20px 20px;
+        }
+        .layer-title { 
+            writing-mode: vertical-rl; 
+            transform: rotate(180deg); 
+            text-align: center; 
+            font-weight: 900; 
+            padding: 15px 5px; 
+            color: white; 
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+        }
+        @media print {
+            body {
+                background: white;
+                background-image: none;
+                padding: 10px;
+            }
+            .glass-card {
+                transform: none !important;
+                box-shadow: none !important;
+                border-color: #cbd5e1 !important;
+            }
+        }
+    </style>
+</head>
+<body class="p-6 md:p-8 text-gray-800 antialiased min-h-screen flex flex-col justify-between max-w-[100rem] mx-auto">
+
+    <!-- CABECERA INSTITUCIONAL ACADÉMICA -->
+    <div class="bg-white border-b-8 border-blue-900 p-6 md:p-8 mb-6 shadow-md rounded-xl flex flex-col md:flex-row justify-between items-center gap-6 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-32 h-32 bg-blue-900/5 rounded-full -translate-x-12 -translate-y-12"></div>
+        <div class="absolute bottom-0 right-0 w-48 h-48 bg-blue-900/5 rounded-full translate-x-16 translate-y-16"></div>
+        
+        <div class="z-10 text-center md:text-left flex flex-col md:flex-row items-center gap-4">
+            <div class="w-16 h-16 bg-blue-900 rounded-lg flex items-center justify-center text-white font-black text-2xl shadow-inner border border-blue-800">
+                UNAB
+            </div>
+            <div>
+                <h1 class="text-2xl md:text-3xl font-black text-blue-900 tracking-tight">UNIVERSIDAD NACIONAL DE BARRANCA</h1>
+                <p class="text-xs md:text-sm font-bold text-gray-600 mt-1">
+                    Escuela Profesional de Ingeniería de Sistemas e Informática • Curso: Administración y Gestión de Base de Datos
+                </p>
+                <p class="text-[10px] text-gray-500 mt-0.5 font-medium">
+                    Autores: Huertas P., Jara D., Lazaro A., Pescetto J. • Docente: Mtro. Renato Mario Ampuero Herrera
+                </p>
+            </div>
+        </div>
+        
+        <div class="z-10 text-center md:text-right border-t md:border-t-0 md:border-l border-gray-200 pt-4 md:pt-0 md:pl-8 flex flex-col items-center md:items-end">
+            <h2 class="text-[11px] font-black tracking-widest text-blue-800 uppercase leading-none">ARQUITECTURA EMPRESARIAL INTELIGENTE</h2>
+            <p class="text-xl md:text-2xl font-black text-gray-900 mt-1 leading-tight">SISTEMA LOGÍSTICO OMNIRUTA</p>
+            <div class="flex items-center gap-2 mt-2">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800">
+                    TOGAF 10 ADM
+                </span>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-800">
+                    Examen Parcial
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIAGRAMA DE ARQUITECTURA EN 4 CAPAS -->
+    <div class="space-y-6 flex-grow">
+
+        <!-- ==================== CAPA 1: NEGOCIO (AZUL) ==================== -->
+        <div class="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-blue-200 transition-all duration-300 hover:border-blue-400">
+            <!-- Título Lateral Rotado -->
+            <div class="bg-gradient-to-b from-blue-700 to-blue-950 layer-title w-full md:w-14 flex items-center justify-center text-sm md:text-base py-3 md:py-0">
+                <span class="layer-title block">NEGOCIO</span>
+            </div>
+            
+            <div class="w-full flex flex-col">
+                <!-- Banner de la Capa -->
+                <div class="bg-blue-900 text-white font-bold tracking-wide py-2 px-6 text-xs md:text-sm uppercase flex justify-between items-center shadow-sm">
+                    <span>CAPA 1 - ARQUITECTURA DE NEGOCIO (Fase B - Business Architecture)</span>
+                    <span class="text-[10px] bg-blue-800 px-2.5 py-0.5 rounded text-blue-200 font-mono">TOGAF Phase B</span>
+                </div>
+                
+                <!-- Grid de Contenido -->
+                <div class="p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 bg-gradient-to-br from-blue-50/50 to-white">
+                    
+                    <!-- Misión / Visión -->
+                    <div class="glass-card p-4 rounded-lg border border-blue-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-blue-900 text-[11px] tracking-wider uppercase mb-3 border-b border-blue-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                Misión / Visión
+                            </h3>
+                            <ul class="text-[11px] text-gray-700 space-y-1.5">
+                                <li class="flex items-start gap-1"><span class="text-blue-500 font-bold">•</span> Gestión integral de despachos.</li>
+                                <li class="flex items-start gap-1"><span class="text-blue-500 font-bold">•</span> Control de flota y conductores.</li>
+                                <li class="flex items-start gap-1"><span class="text-blue-500 font-bold">•</span> Trazabilidad de incidencias operativas.</li>
+                                <li class="flex items-start gap-1"><span class="text-blue-500 font-bold">•</span> Toma de decisiones con Looker Studio.</li>
+                                <li class="flex items-start gap-1"><span class="text-blue-500 font-bold">•</span> SLA de entregas a tiempo.</li>
+                            </ul>
+                        </div>
+                        <span class="text-[9px] text-blue-700 font-bold italic mt-3 block">Adaptado al contexto peruano</span>
+                    </div>
+
+                    <!-- Procesos BPM -->
+                    <div class="glass-card p-4 rounded-lg border border-blue-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-blue-900 text-[11px] tracking-wider uppercase mb-3 border-b border-blue-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+                                Procesos (BPM)
+                            </h3>
+                            <div class="space-y-1">
+                                <div class="p-1 bg-blue-100/50 rounded border border-blue-100 text-[10px]">
+                                    <span class="font-bold text-blue-900 block">BP-01: Gestión Despachos</span>
+                                    <span class="text-[9px] text-gray-500 leading-none">End-to-end completo</span>
+                                </div>
+                                <div class="p-1 bg-blue-100/50 rounded border border-blue-100 text-[10px]">
+                                    <span class="font-bold text-blue-900 block">BP-02: Control Flota</span>
+                                    <span class="text-[9px] text-gray-500 leading-none">Monitoreo de unidades</span>
+                                </div>
+                                <div class="p-1 bg-blue-100/50 rounded border border-blue-100 text-[10px]">
+                                    <span class="font-bold text-blue-900 block">BP-03: Rastreo Encomiendas</span>
+                                    <span class="text-[9px] text-gray-500 leading-none">Trazabilidad para cliente</span>
+                                </div>
+                                <div class="p-1 bg-blue-100/50 rounded border border-blue-100 text-[10px]">
+                                    <span class="font-bold text-blue-900 block">BP-04: Auditoría Incidencias</span>
+                                    <span class="text-[9px] text-gray-500 leading-none">Control y mitigación de riesgos</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">BPMN 2.0 • Aiken V &ge; 0.80 (5 Jueces)</span>
+                    </div>
+
+                    <!-- Actores y Roles -->
+                    <div class="glass-card p-4 rounded-lg border border-blue-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-blue-900 text-[11px] tracking-wider uppercase mb-3 border-b border-blue-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                Actores y Roles
+                            </h3>
+                            <div class="space-y-1 text-[10px]">
+                                <div class="p-1 bg-white border border-gray-200 rounded flex justify-between items-center">
+                                    <span class="font-bold text-gray-800">Gerencia</span>
+                                    <span class="px-1.5 py-0.5 bg-blue-50 text-blue-700 rounded font-bold text-[8px]">Dashboards</span>
+                                </div>
+                                <div class="p-1 bg-white border border-gray-200 rounded flex justify-between items-center">
+                                    <span class="font-bold text-gray-800">Jefe Operaciones</span>
+                                    <span class="px-1.5 py-0.5 bg-blue-50 text-blue-700 rounded font-bold text-[8px]">Despachos</span>
+                                </div>
+                                <div class="p-1 bg-white border border-gray-200 rounded flex justify-between items-center">
+                                    <span class="font-bold text-gray-800">Conductor</span>
+                                    <span class="px-1.5 py-0.5 bg-blue-50 text-blue-700 rounded font-bold text-[8px]">Rutas</span>
+                                </div>
+                                <div class="p-1 bg-white border border-gray-200 rounded flex justify-between items-center">
+                                    <span class="font-bold text-gray-800">Auditor</span>
+                                    <span class="px-1.5 py-0.5 bg-blue-50 text-blue-700 rounded font-bold text-[8px]">Incidencias</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">Matriz RACI • Mínimo Privilegio</span>
+                    </div>
+
+                    <!-- Drivers y Restricciones -->
+                    <div class="glass-card p-4 rounded-lg border border-blue-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-blue-900 text-[11px] tracking-wider uppercase mb-3 border-b border-blue-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                Drivers / Restricciones
+                            </h3>
+                            <ul class="text-[10px] text-gray-700 space-y-1.5">
+                                <li class="flex items-start gap-1">
+                                    <span class="text-blue-500 font-bold">✓</span>
+                                    <span>Integridad en 3FN</span>
+                                </li>
+                                <li class="flex items-start gap-1">
+                                    <span class="text-blue-500 font-bold">✓</span>
+                                    <span>Disponibilidad 24/7 (SLA 99.5%)</span>
+                                </li>
+                                <li class="flex items-start gap-1">
+                                    <span class="text-blue-500 font-bold">✓</span>
+                                    <span>Respuesta del motor &lt; 2s</span>
+                                </li>
+                                <li class="flex items-start gap-1">
+                                    <span class="text-blue-500 font-bold">✓</span>
+                                    <span>Norma ISO/IEC/IEEE 42030:2019</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- KPIs Gerenciales -->
+                    <div class="glass-card p-4 rounded-lg border border-blue-100 shadow-3xs flex flex-col justify-between">
+                        <h3 class="font-black text-blue-900 text-[11px] tracking-wider uppercase mb-3 border-b border-blue-200 pb-1.5 flex items-center gap-1.5">
+                            <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            KPIs Dashboard
+                        </h3>
+                        <div class="space-y-1.5">
+                            <div class="bg-white p-1.5 border border-gray-150 rounded flex justify-between items-center">
+                                <div class="flex flex-col">
+                                    <span class="text-[8px] font-black text-gray-400 uppercase leading-none">Costos Operat.</span>
+                                    <span class="text-[7px] text-gray-500">Monto acumulado</span>
+                                </div>
+                                <span class="text-[11px] font-black text-blue-900">S/.28.4k</span>
+                            </div>
+                            <div class="bg-white p-1.5 border border-gray-150 rounded flex justify-between items-center">
+                                <div class="flex flex-col">
+                                    <span class="text-[8px] font-black text-gray-400 uppercase leading-none">Entregas a tiempo</span>
+                                    <span class="text-[7px] text-gray-500">SLA 48h</span>
+                                </div>
+                                <span class="text-[11px] font-black text-emerald-600">90.00%</span>
+                            </div>
+                            <div class="bg-white p-1.5 border border-gray-150 rounded flex justify-between items-center">
+                                <div class="flex flex-col">
+                                    <span class="text-[8px] font-black text-gray-400 uppercase leading-none">Factor de Carga</span>
+                                    <span class="text-[7px] text-gray-500">Volumetría vehículos</span>
+                                </div>
+                                <span class="text-[11px] font-black text-orange-600">48.76%</span>
+                            </div>
+                            <div class="bg-white p-1.5 border border-gray-150 rounded flex justify-between items-center">
+                                <div class="flex flex-col">
+                                    <span class="text-[8px] font-black text-gray-400 uppercase leading-none">Fallas Mecánicas</span>
+                                    <span class="text-[7px] text-gray-500">Total incidencias</span>
+                                </div>
+                                <span class="text-[11px] font-black text-red-600">3</span>
+                            </div>
+                            <div class="bg-white p-1.5 border border-gray-150 rounded flex justify-between items-center">
+                                <div class="flex flex-col">
+                                    <span class="text-[8px] font-black text-gray-400 uppercase leading-none">Ingreso por Km</span>
+                                    <span class="text-[7px] text-gray-500">Métrica IKR</span>
+                                </div>
+                                <span class="text-[11px] font-black text-blue-900">IKR</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== CAPA 2: APLICACIÓN (VERDE) ==================== -->
+        <div class="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-emerald-200 transition-all duration-300 hover:border-emerald-400">
+            <!-- Título Lateral Rotado -->
+            <div class="bg-gradient-to-b from-emerald-600 to-emerald-900 layer-title w-full md:w-14 flex items-center justify-center text-sm md:text-base py-3 md:py-0">
+                <span class="layer-title block">APLICACIÓN</span>
+            </div>
+            
+            <div class="w-full flex flex-col">
+                <!-- Banner de la Capa -->
+                <div class="bg-emerald-950 text-white font-bold tracking-wide py-2 px-6 text-xs md:text-sm uppercase flex justify-between items-center shadow-sm">
+                    <span>CAPA 2 - ARQUITECTURA DE APLICACIÓN (Fase C - Information Systems Architecture - IS)</span>
+                    <span class="text-[10px] bg-emerald-800 px-2.5 py-0.5 rounded text-emerald-200 font-mono">TOGAF Phase C - IS</span>
+                </div>
+                
+                <!-- Grid de Contenido -->
+                <div class="p-5 grid grid-cols-1 md:grid-cols-3 gap-5 bg-gradient-to-br from-emerald-50/50 to-white">
+                    
+                    <!-- Lógica de Negocio (Stored Procedures) -->
+                    <div class="glass-card p-4 rounded-lg border border-emerald-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-emerald-950 text-[11px] tracking-wider uppercase mb-3 border-b border-emerald-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                                Lógica de Negocio (Stored Procedures - 5)
+                            </h3>
+                            <div class="space-y-1.5">
+                                <div class="p-1.5 bg-emerald-50/50 border border-emerald-100 rounded text-[10px] font-mono">
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-bold text-gray-800">usp_RegistrarIncidencia</span>
+                                        <span class="px-1 bg-blue-100 text-blue-800 rounded text-[7px] font-bold">INSERT</span>
+                                    </div>
+                                    <span class="text-[8px] text-gray-500 block leading-tight mt-0.5">Captura automática GETDATE() y nivel de gravedad</span>
+                                </div>
+                                <div class="p-1.5 bg-emerald-50/50 border border-emerald-100 rounded text-[10px] font-mono">
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-bold text-gray-800">usp_TopRutasRentables</span>
+                                        <span class="px-1 bg-emerald-100 text-emerald-800 rounded text-[7px] font-bold">SELECT</span>
+                                    </div>
+                                    <span class="text-[8px] text-gray-500 block leading-tight mt-0.5">Ingresos agrupados por agencia origen/destino</span>
+                                </div>
+                                <div class="p-1.5 bg-emerald-50/50 border border-emerald-100 rounded text-[10px] font-mono">
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-bold text-gray-800">usp_RendimientoFlota</span>
+                                        <span class="px-1 bg-emerald-100 text-emerald-800 rounded text-[7px] font-bold">SELECT</span>
+                                    </div>
+                                    <span class="text-[8px] text-gray-500 block leading-tight mt-0.5">Segmenta viajes y km por modalidad (Terrestre/Fluvial)</span>
+                                </div>
+                                <div class="p-1.5 bg-emerald-50/50 border border-emerald-100 rounded text-[10px] font-mono">
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-bold text-gray-800">usp_AlertasCuellosBotella</span>
+                                        <span class="px-1 bg-emerald-100 text-emerald-800 rounded text-[7px] font-bold">SELECT</span>
+                                    </div>
+                                    <span class="text-[8px] text-gray-500 block leading-tight mt-0.5">Identifica tramos con alta concentración de incidencias</span>
+                                </div>
+                                <div class="p-1.5 bg-emerald-50/50 border border-emerald-100 rounded text-[10px] font-mono">
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-bold text-gray-800">usp_BajaLogicaVehiculo</span>
+                                        <span class="px-1 bg-amber-100 text-amber-800 rounded text-[7px] font-bold">UPDATE</span>
+                                    </div>
+                                    <span class="text-[8px] text-gray-500 block leading-tight mt-0.5">Eliminación lógica con cambio de estado (activo = 0)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">TRY-CATCH • Transaccionalidad • SET NOCOUNT ON</span>
+                    </div>
+
+                    <!-- Vistas e Índices -->
+                    <div class="glass-card p-4 rounded-lg border border-emerald-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-emerald-950 text-[11px] tracking-wider uppercase mb-3 border-b border-emerald-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                Vistas e Índices
+                            </h3>
+                            
+                            <div class="space-y-3">
+                                <div>
+                                    <h4 class="text-[9px] font-extrabold uppercase tracking-widest text-emerald-800 mb-1 leading-none">Vistas - Fuentes para Looker Studio</h4>
+                                    <div class="space-y-1 text-[9px] font-mono">
+                                        <div class="px-1.5 py-1 bg-white border border-gray-150 rounded">
+                                            <span class="font-bold text-gray-800 block">vw_DashboardLogistico</span>
+                                            <span class="text-[7.5px] text-gray-500 font-sans">Facturación, Eficiencia temporal y peso cargado</span>
+                                        </div>
+                                        <div class="px-1.5 py-1 bg-white border border-gray-150 rounded">
+                                            <span class="font-bold text-gray-800 block">v_DashboardMapaIncidencias</span>
+                                            <span class="text-[7.5px] text-gray-500 font-sans">Incidencias cruzadas con Hub origen/destino y Ubigeo</span>
+                                        </div>
+                                        <div class="px-1.5 py-1 bg-white border border-gray-150 rounded">
+                                            <span class="font-bold text-gray-800 block">v_DirectorioFlotaActiva</span>
+                                            <span class="text-[7.5px] text-gray-500 font-sans">Filtra vehículos con estado activo = 1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-[9px] font-extrabold uppercase tracking-widest text-emerald-800 mb-1 leading-none">Índices de Búsqueda y Rendimiento</h4>
+                                    <div class="space-y-1 text-[9px] font-mono">
+                                        <div class="px-1.5 py-1 bg-white border border-gray-150 rounded flex justify-between items-start">
+                                            <div>
+                                                <span class="font-bold text-gray-800 block">IX_Encomienda_CodigoRastreo</span>
+                                                <span class="text-[7.5px] text-gray-500 font-sans">Optimiza tracking público sobre codigo_rastreo</span>
+                                            </div>
+                                            <span class="text-[7px] bg-gray-100 text-gray-500 rounded px-1 font-sans">NC</span>
+                                        </div>
+                                        <div class="px-1.5 py-1 bg-white border border-gray-150 rounded flex justify-between items-start">
+                                            <div>
+                                                <span class="font-bold text-gray-800 block">IX_Despacho_FechaSalida</span>
+                                                <span class="text-[7.5px] text-gray-500 font-sans">Acelera filtros de fecha en Looker Studio</span>
+                                            </div>
+                                            <span class="text-[7px] bg-gray-100 text-gray-500 rounded px-1 font-sans">NC</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">29 Clustered (con PK) creados por motor</span>
+                    </div>
+
+                    <!-- Dashboard Empresarial Cloud BI -->
+                    <div class="glass-card p-4 rounded-lg border border-emerald-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-emerald-950 text-[11px] tracking-wider uppercase mb-3 border-b border-emerald-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                Dashboard Empresarial - Looker Studio
+                            </h3>
+                            
+                            <div class="space-y-2">
+                                <div class="p-2 bg-emerald-950/5 rounded border border-emerald-200 text-[10px] leading-tight">
+                                    <span class="font-bold text-emerald-900 block mb-0.5">Integración en la Nube</span>
+                                    Sincronización segura mediante el puerto de comunicación <code class="bg-white px-1 text-red-600 font-semibold rounded font-mono">1433</code>.
+                                </div>
+                                
+                                <div>
+                                    <span class="text-[8.5px] font-extrabold tracking-wider text-emerald-800 uppercase block mb-1">Navegación e Interacción (3 Filtros)</span>
+                                    <div class="grid grid-cols-3 gap-1 text-[8.5px] font-bold text-center">
+                                        <div class="py-1 bg-white border border-gray-200 rounded">📅 Rango Fecha</div>
+                                        <div class="py-1 bg-white border border-gray-200 rounded">📍 Hub Origen</div>
+                                        <div class="py-1 bg-white border border-gray-200 rounded">📍 Hub Destino</div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <span class="text-[8.5px] font-extrabold tracking-wider text-emerald-800 uppercase block mb-1">Representaciones Visuales</span>
+                                    <div class="space-y-1 text-[9px] text-gray-700 font-medium">
+                                        <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> <strong>Líneas:</strong> Tendencia demanda por hora</div>
+                                        <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> <strong>Barras:</strong> Top Ingresos por Hub de Destino</div>
+                                        <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> <strong>Mapa de calor:</strong> Proyección de incidencias</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">Interactividad Cruzada (Cross-Filtering)</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== CAPA 3: DATOS (NARANJA) ==================== -->
+        <div class="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-orange-200 transition-all duration-300 hover:border-orange-400">
+            <!-- Título Lateral Rotado -->
+            <div class="bg-gradient-to-b from-orange-600 to-orange-900 layer-title w-full md:w-14 flex items-center justify-center text-sm md:text-base py-3 md:py-0">
+                <span class="layer-title block">DATOS</span>
+            </div>
+            
+            <div class="w-full flex flex-col">
+                <!-- Banner de la Capa -->
+                <div class="bg-orange-950 text-white font-bold tracking-wide py-2 px-6 text-xs md:text-sm uppercase flex justify-between items-center shadow-sm">
+                    <span>CAPA 3 - ARQUITECTURA DE DATOS (Fase C - Data Architecture)</span>
+                    <span class="text-[10px] bg-orange-850 px-2.5 py-0.5 rounded text-orange-200 font-mono">TOGAF Phase C - Data</span>
+                </div>
+                
+                <!-- Grid de Contenido -->
+                <div class="p-5 grid grid-cols-1 md:grid-cols-3 gap-5 bg-gradient-to-br from-orange-50/50 to-white">
+                    
+                    <!-- Modelo Físico - Filegroups -->
+                    <div class="glass-card p-4 rounded-lg border border-orange-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-orange-950 text-[11px] tracking-wider uppercase mb-3 border-b border-orange-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+                                Modelo Físico - Filegroups
+                            </h3>
+                            <div class="space-y-2">
+                                <div class="p-1.5 bg-white border border-gray-150 rounded">
+                                    <div class="flex justify-between items-center text-[10px] font-bold text-gray-800">
+                                        <span>PRIMARY</span>
+                                        <code class="text-[8.5px] font-mono text-orange-700">OmniRuta_Pri_Data.mdf</code>
+                                    </div>
+                                    <span class="text-[8px] text-gray-500 block leading-tight mt-0.5">Tamaño: 50MB (Crece 10MB) - Catálogos, Maestros, Geografía y Direcciones</span>
+                                </div>
+                                <div class="p-1.5 bg-white border border-gray-150 rounded">
+                                    <div class="flex justify-between items-center text-[10px] font-bold text-gray-800">
+                                        <span>FG_Transaccional</span>
+                                        <code class="text-[8.5px] font-mono text-orange-700">OmniRuta_Trans_Data.ndf</code>
+                                    </div>
+                                    <span class="text-[8px] text-gray-500 block leading-tight mt-0.5">Tamaño: 100MB (Crece 20MB) - Tablas Core (Despacho, Encomienda, Facturación)</span>
+                                </div>
+                                <div class="p-1.5 bg-white border border-gray-150 rounded">
+                                    <div class="flex justify-between items-center text-[10px] font-bold text-gray-800">
+                                        <span>FG_Historico</span>
+                                        <code class="text-[8.5px] font-mono text-orange-700">OmniRuta_Hist_Data.ndf</code>
+                                    </div>
+                                    <span class="text-[8px] text-gray-500 block leading-tight mt-0.5">Tamaño: 100MB (Crece 50MB) - Historial de Seguimiento y Entrega Final</span>
+                                </div>
+                                <div class="p-1.5 bg-white border border-gray-150 rounded">
+                                    <div class="flex justify-between items-center text-[10px] font-bold text-gray-800">
+                                        <span>LOG (Transacciones)</span>
+                                        <code class="text-[8.5px] font-mono text-orange-700">OmniRuta_Log.ldf</code>
+                                    </div>
+                                    <span class="text-[8px] text-gray-500 block leading-tight mt-0.5">Tamaño: 50MB (Límite 2GB, Crece 10MB) - Registro de auditoría del motor</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">Aislamiento de Cargas • Páginas SQL 8KB • Collate Modern_Spanish</span>
+                    </div>
+
+                    <!-- Constraints y Normalización -->
+                    <div class="glass-card p-4 rounded-lg border border-orange-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-orange-950 text-[11px] tracking-wider uppercase mb-3 border-b border-orange-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                                Modelo Lógico y DER
+                            </h3>
+                            
+                            <!-- Mini DER visualizado en SVG -->
+                            <div class="bg-orange-50/50 p-2 border border-orange-100 rounded mb-3">
+                                <span class="text-[8px] font-extrabold uppercase tracking-widest text-orange-800 block mb-1">Esquema Relacional Central (DER)</span>
+                                <svg viewBox="0 0 400 90" class="w-full h-auto">
+                                    <!-- Entidades -->
+                                    <rect x="10" y="25" width="70" height="25" rx="3" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+                                    <text x="45" y="41" font-size="8" font-family="sans-serif" font-weight="bold" fill="#7c2d12" text-anchor="middle">Cliente</text>
+                                    
+                                    <rect x="110" y="25" width="70" height="25" rx="3" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+                                    <text x="145" y="41" font-size="8" font-family="sans-serif" font-weight="bold" fill="#7c2d12" text-anchor="middle">Encomienda</text>
+                                    
+                                    <rect x="210" y="25" width="80" height="25" rx="3" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+                                    <text x="250" y="41" font-size="8" font-family="sans-serif" font-weight="bold" fill="#7c2d12" text-anchor="middle">Despacho</text>
+                                    
+                                    <rect x="320" y="25" width="70" height="25" rx="3" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+                                    <text x="355" y="41" font-size="8" font-family="sans-serif" font-weight="bold" fill="#7c2d12" text-anchor="middle">Incidencia</text>
+                                    
+                                    <!-- Conectores y Cardinalidad -->
+                                    <path d="M 80 37 L 110 37" stroke="#f97316" stroke-width="1" stroke-dasharray="2" fill="none"/>
+                                    <text x="85" y="34" font-size="7" fill="#ea580c">1</text>
+                                    <text x="102" y="34" font-size="7" fill="#ea580c">N</text>
+                                    
+                                    <path d="M 180 37 L 210 37" stroke="#f97316" stroke-width="1" stroke-dasharray="2" fill="none"/>
+                                    <text x="185" y="34" font-size="7" fill="#ea580c">N</text>
+                                    <text x="202" y="34" font-size="7" fill="#ea580c">1</text>
+                                    
+                                    <path d="M 290 37 L 320 37" stroke="#f97316" stroke-width="1" stroke-dasharray="2" fill="none"/>
+                                    <text x="295" y="34" font-size="7" fill="#ea580c">1</text>
+                                    <text x="312" y="34" font-size="7" fill="#ea580c">N</text>
+                                </svg>
+                            </div>
+
+                            <ul class="text-[10px] text-gray-700 space-y-1">
+                                <li class="flex justify-between items-center py-0.5 border-b border-orange-100">
+                                    <span class="font-bold">Estructura Relacional:</span>
+                                    <span class="font-extrabold text-orange-800">29 Tablas</span>
+                                </li>
+                                <li class="flex items-start gap-1.5"><span class="text-orange-500 font-bold">•</span> <strong>CHECK constraints:</strong> <code class="text-[9px] font-mono">salario &gt; 0</code>, <code class="text-[9px] font-mono">precio_base &gt; 0</code>, <code class="text-[9px] font-mono">gravedad</code>, <code class="text-[9px] font-mono">tipo_persona ('N','J')</code>.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-orange-500 font-bold">•</span> <strong>Constraints UNIQUE:</strong> Placas vehiculares, DNI/RUC de clientes, código_rastreo.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-orange-500 font-bold">•</span> <strong>Valores DEFAULT:</strong> Marcado temporal automático mediante <code class="text-[9px] font-mono">GETDATE()</code> en auditoría.</li>
+                            </ul>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">Normalización rigurosa en 3FN / BCNF</span>
+                    </div>
+
+                    <!-- Gestión de Datos -->
+                    <div class="glass-card p-4 rounded-lg border border-orange-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-orange-950 text-[11px] tracking-wider uppercase mb-3 border-b border-orange-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                Gestión de Datos y Seguridad
+                            </h3>
+                            <div class="space-y-2">
+                                <div class="p-2 bg-white border border-gray-150 rounded">
+                                    <h4 class="text-[8.5px] font-bold text-orange-800 uppercase tracking-widest leading-none mb-1">Políticas de Acceso</h4>
+                                    <p class="text-[9px] text-gray-600 leading-tight">
+                                        Creación de usuario específico para BI <code class="bg-gray-100 text-gray-700 px-1 py-0.5 rounded font-mono text-[8px]">LookerUser</code> con permisos restringidos de solo lectura (<code class="font-mono text-[8px]">SELECT</code>) para proteger la capa transaccional.
+                                    </p>
+                                </div>
+                                <div class="p-2 bg-white border border-gray-150 rounded">
+                                    <h4 class="text-[8.5px] font-bold text-orange-800 uppercase tracking-widest leading-none mb-1">Trazabilidad y Soft Delete</h4>
+                                    <p class="text-[9px] text-gray-600 leading-tight">
+                                        Estrategia de **Soft Delete** (<code class="bg-gray-100 text-gray-700 px-1 py-0.5 rounded font-mono text-[8px]">activo = 0</code>) en vehículos y clientes para preservar el histórico de auditoría.
+                                    </p>
+                                </div>
+                                <div>
+                                    <span class="text-[8.5px] font-extrabold tracking-wider text-orange-800 uppercase block mb-1">Ciclo de Vida del Dato (6 Fases)</span>
+                                    <div class="flex flex-wrap gap-1 text-[7.5px] font-black text-gray-600">
+                                        <span class="px-1 py-0.5 bg-orange-100/50 rounded">1. INGESTA</span>
+                                        <span class="px-1 py-0.5 bg-orange-100/50 rounded">2. PROCESO</span>
+                                        <span class="px-1 py-0.5 bg-orange-100/50 rounded">3. ALMACÉN</span>
+                                        <span class="px-1 py-0.5 bg-orange-100/50 rounded">4. ACCESO</span>
+                                        <span class="px-1 py-0.5 bg-orange-100/50 rounded">5. ANÁLISIS</span>
+                                        <span class="px-1 py-0.5 bg-orange-100/50 rounded">6. AUDITAR</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">Cumplimiento Estándar de Seguridad ISO/IEC 27001</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== CAPA 4: TECNOLOGÍA (MORADO) ==================== -->
+        <div class="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-purple-200 transition-all duration-300 hover:border-purple-400">
+            <!-- Título Lateral Rotado -->
+            <div class="bg-gradient-to-b from-purple-600 to-purple-900 layer-title w-full md:w-14 flex items-center justify-center text-sm md:text-base py-3 md:py-0">
+                <span class="layer-title block">TECNOLOGÍA</span>
+            </div>
+            
+            <div class="w-full flex flex-col">
+                <!-- Banner de la Capa -->
+                <div class="bg-purple-950 text-white font-bold tracking-wide py-2 px-6 text-xs md:text-sm uppercase flex justify-between items-center shadow-sm">
+                    <span>CAPA 4 - ARQUITECTURA DE TECNOLOGÍA (Fase D - Technology Architecture)</span>
+                    <span class="text-[10px] bg-purple-850 px-2.5 py-0.5 rounded text-purple-200 font-mono">TOGAF Phase D</span>
+                </div>
+                
+                <!-- Grid de Contenido -->
+                <div class="p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 bg-gradient-to-br from-purple-50/50 to-white">
+                    
+                    <!-- Motor de Base de Datos -->
+                    <div class="glass-card p-4 rounded-lg border border-purple-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-purple-950 text-[11px] tracking-wider uppercase mb-3 border-b border-purple-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
+                                Motor de Datos
+                            </h3>
+                            <div class="space-y-1.5 text-[10px]">
+                                <div class="bg-white p-1 border border-gray-150 rounded font-medium">
+                                    <span class="font-bold text-gray-800 block">Motor de BD</span> SQL Server 2022/2025
+                                </div>
+                                <div class="bg-white p-1 border border-gray-150 rounded font-medium">
+                                    <span class="font-bold text-gray-800 block">Configuración</span> Conectividad TCP/IP activa
+                                </div>
+                                <div class="bg-white p-1 border border-gray-150 rounded flex justify-between items-center">
+                                    <span class="font-bold text-gray-800">Puerto DB</span>
+                                    <span class="bg-purple-100 text-purple-800 font-mono font-bold px-1.5 py-0.5 rounded text-[9px]">1433</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">Instancia Local / Académica</span>
+                    </div>
+
+                    <!-- Infraestructura -->
+                    <div class="glass-card p-4 rounded-lg border border-purple-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-purple-950 text-[11px] tracking-wider uppercase mb-3 border-b border-purple-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+                                Infraestructura
+                            </h3>
+                            <div class="space-y-1 text-[10px]">
+                                <div class="flex justify-between items-center py-0.5 border-b border-gray-100">
+                                    <span class="text-gray-500 font-medium">CPU</span>
+                                    <span class="font-bold text-gray-800">Intel i5/i7 o AMD</span>
+                                </div>
+                                <div class="flex justify-between items-center py-0.5 border-b border-gray-100">
+                                    <span class="text-gray-500 font-medium">RAM</span>
+                                    <span class="font-bold text-gray-800">16 GB mínimo</span>
+                                </div>
+                                <div class="flex justify-between items-center py-0.5 border-b border-gray-100">
+                                    <span class="text-gray-500 font-medium">Disco</span>
+                                    <span class="font-bold text-gray-800">SSD (500MB libres)</span>
+                                </div>
+                                <div class="flex justify-between items-center py-0.5">
+                                    <span class="text-gray-500 font-medium">Sistema</span>
+                                    <span class="font-bold text-gray-800">Windows 10/11 x64</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">Hardware Mínimo de Estudiante</span>
+                    </div>
+
+                    <!-- Red y Conectividad -->
+                    <div class="glass-card p-4 rounded-lg border border-purple-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-purple-950 text-[11px] tracking-wider uppercase mb-3 border-b border-purple-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                Red y Conectividad
+                            </h3>
+                            
+                            <!-- Mapeo de flujo de conectividad en miniatura -->
+                            <div class="space-y-2">
+                                <div class="p-2 bg-purple-50/50 border border-purple-100 rounded text-[9px] leading-tight">
+                                    <span class="font-bold text-purple-900 block mb-0.5">Canal de Datos</span>
+                                    Conector Nativo Microsoft SQL Server hacia Google Looker Studio Cloud.
+                                </div>
+                                <div class="flex flex-col gap-0.5 text-[8px] font-mono text-center text-purple-800">
+                                    <div class="py-0.5 bg-white border border-purple-200 rounded">SQL Server Local</div>
+                                    <div class="text-center font-bold">⬇ [TCP :1433]</div>
+                                    <div class="py-0.5 bg-white border border-purple-200 rounded">Looker Studio Connector</div>
+                                    <div class="text-center font-bold">⬇ [HTTPS Public]</div>
+                                    <div class="py-0.5 bg-white border border-purple-200 rounded">Dashboard Visual</div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">Latencia &lt; 100ms • SLA 99.5%</span>
+                    </div>
+
+                    <!-- Entornos y Repositorio -->
+                    <div class="glass-card p-4 rounded-lg border border-purple-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-purple-950 text-[11px] tracking-wider uppercase mb-3 border-b border-purple-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v8a2 2 0 11-4 0V4z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 8.486V14a6 6 0 01-12 0v-5.514m12 0a2.25 2.25 0 00-4.5 0v1.5a2.25 2.25 0 01-4.5 0v-1.5a2.25 2.25 0 00-4.5 0"/></svg>
+                                Entornos y Repositorio
+                            </h3>
+                            <div class="space-y-2 text-[9px]">
+                                <div class="p-1 bg-white border border-gray-150 rounded">
+                                    <strong class="text-purple-900 block leading-tight">Entornos de Software:</strong>
+                                    SSMS 19+ para codificación SQL y Google Looker Studio para Analytics BI.
+                                </div>
+                                <div class="p-1 bg-white border border-gray-150 rounded font-mono">
+                                    <strong class="text-purple-900 block font-sans leading-tight">Repositorio Académico:</strong>
+                                    - OMNI_CREATE.sql<br>
+                                    - OMNI_PIV.sql<br>
+                                    - OMNI_NSERT_FINAL.sql
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">Instalación total &lt; 30 min</span>
+                    </div>
+
+                    <!-- Marco de Referencia -->
+                    <div class="glass-card p-4 rounded-lg border border-purple-100 shadow-3xs flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-black text-purple-950 text-[11px] tracking-wider uppercase mb-3 border-b border-purple-200 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                                Marco TOGAF ADM
+                            </h3>
+                            <div class="space-y-1.5 text-[9px] text-gray-700 font-medium">
+                                <div class="flex items-center gap-1"><span class="w-1 h-1 rounded-full bg-purple-600"></span> <strong>Phase A:</strong> Vision</div>
+                                <div class="flex items-center gap-1"><span class="w-1 h-1 rounded-full bg-purple-600"></span> <strong>Phase B:</strong> Business Arch</div>
+                                <div class="flex items-center gap-1"><span class="w-1 h-1 rounded-full bg-purple-600"></span> <strong>Phase C:</strong> IS Architecture</div>
+                                <div class="flex items-center gap-1"><span class="w-1 h-1 rounded-full bg-purple-600"></span> <strong>Phase D:</strong> Technology Arch</div>
+                                <div class="flex items-center gap-1"><span class="w-1 h-1 rounded-full bg-purple-600"></span> <strong>Phase E-H:</strong> Governance</div>
+                            </div>
+                        </div>
+                        <span class="text-[8px] text-gray-400 font-semibold mt-2">Investigación Doctoral UNAB</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PIE DE DIAGRAMA: LEYENDA Y METRICS -->
+    <div class="mt-6 bg-white border border-gray-250 p-4 rounded-xl shadow-xs flex flex-wrap items-center justify-between gap-4 text-xs font-semibold text-gray-700">
+        <div class="flex items-center gap-2">
+            <span class="text-xs uppercase font-extrabold text-blue-900 tracking-wider">Leyenda y Cumplimiento:</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200">TOGAF 10 ADM</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">ISO/IEC 42030</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-orange-100 text-orange-800 border border-orange-200">SQL Server 2025</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200">Looker Studio</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200">BPMN 2.0</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">Normalización 3FN</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-orange-100 text-orange-800 border border-orange-200">SLA 99.5%</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200">Aiken V &ge; 0.80</span>
+        </div>
+        <div class="text-[10px] text-gray-400 text-right">
+            Ingeniería de Sistemas e Informática • UNAB 2026
+        </div>
+    </div>
+
+</body>
+</html>
