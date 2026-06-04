@@ -20,10 +20,13 @@ Para replicar el entorno de producción, ejecutar los scripts ubicados en la car
 2. **`02_DML_Insercion_Datos_Historico.sql`**: Carga de datos semilla (Geografía, Tarifarios, Flota) e histórico de despachos.
 3. **`03_Logica_Vistas_Indices_SPs.sql`**: Despliegue de los Procedimientos Almacenados, Vistas de desnormalización y creación de Índices Non-Clustered.
 
-## 👨‍💻 Autor
+## 👨‍💻 Equipo de Desarollo
 * **Bryan Cristopher Huertas Pascacio**
+* **Daniel Alejandro Jara Nuñez**
+* **Angelo Mateo Lazaro Roque**
+* **Jose Andres Pescetto Jara**
 * *Programa Académico de Ingeniería de Sistemas e Informática*
 * *Universidad Nacional de Barranca (UNAB)*
 
 ---
-*Repositorio creado para la sustentación del Sub-Producto U2 - Feria Tecnológica.*
+*Repositorio creado para la sustentación del Sub-Producto U2 - Examen ParciaL.*
